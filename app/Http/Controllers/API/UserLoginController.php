@@ -33,7 +33,7 @@ class UserLoginController extends Controller
 
         $user = User::where('username', $request->username)->first();
         if (!$user) {
-            return response()->json(['message' => 'Invalid Username/Password'], 401);
+            return response()->json(['message' => 'User Not Found'], 401);
         }
 
         if (!$user->email_verified) {
